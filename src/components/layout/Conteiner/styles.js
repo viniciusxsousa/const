@@ -8,6 +8,5 @@ export const DivAux = styled.div`
     justify-content: ${(props) => (props.justify === 'start' ? 'flex-start' : 'space-between')};
     margin: 0 auto;
     flex-wrap: wrap;
-    background-color: red;
     min-height: ${(props) => (props.altura === 'min' ? "75vh" : "0vh")};
 `

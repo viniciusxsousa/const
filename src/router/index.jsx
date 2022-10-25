@@ -6,11 +6,13 @@ import Empresa from '../pages/Empresa';
 import Home from '../pages/Home';
 
 import Conteiner from '../components/layout/Conteiner';
+import Cabecalho from '../components/layout/Cabecalho';
 
 function Router(){
     return(
         <BrowserRouter>
-            <Conteiner>
+            <Cabecalho/>
+            <Conteiner altura='min'>
                 <Routes>
                     <Route path='/' element={<Home/>}/>
                     <Route path='/contato' element={<Contato/>}/>
