@@ -1,8 +1,10 @@
+import Router from './router'
+
 function App() {
 
   return (
     <div>
-      <p>Cost</p>
+      <Router></Router>
     </div>
   )
 }
