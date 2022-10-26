@@ -11,6 +11,7 @@ export const List = styled.ul`
     align-items: center;
     color: #fff;
     list-style-type: none;
+    font-weight: bold;
 `
 
 export const Item = styled.li`

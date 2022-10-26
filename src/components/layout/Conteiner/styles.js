@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Conteiner from ".";
 
 export const DivAux = styled.div`
-    width: 720px;
+    width: 1200px;
     display: flex;
     flex-direction: ${(props) => (props.direction === 'column' ? 'column' : 'row')};
     justify-content: ${(props) => (props.justify === 'start' ? 'flex-start' : 'space-between')};

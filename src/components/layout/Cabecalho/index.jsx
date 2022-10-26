@@ -15,7 +15,7 @@ function Cabecalho() {
                 </Link>
                 <List>
                     <Item><Link to='/'>Home</Link></Item>
-                    <Item><Link to='/novoprojeto'>Projetos</Link></Item>
+                    <Item><Link to='/projetos'>Projetos</Link></Item>
                     <Item><Link to='/contato'>Contato</Link></Item>
                     <Item><Link to='/empresa'>Empresa</Link></Item>
                 </List>
