@@ -4,7 +4,12 @@ function Select({text, name, option, handleOnChange, value}) {
     return (
         <Conteiner>
             <label htmlFor={name}>{text}</label>
-            <select name={name} id={name}>
+            <select 
+                name={name} 
+                id={name} 
+                onChange={handleOnChange}
+                value={value || ''}    
+            >
                 {option.map((elemento) => (
                     <option value={elemento.id} key={elemento.id}>{elemento.name}</option>
                 ))}
