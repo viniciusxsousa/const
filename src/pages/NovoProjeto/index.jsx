@@ -22,7 +22,7 @@ function NovoProjeto(){
         }) 
         .then((resp) => resp.json())
         .then((data) => {
-            historico('/projetos', {mensagem: 'Projeto criado com sucesso!'});
+            historico('/projetos', { state: {message: 'Projeto criado com sucesso!'} })
         })
     }
 
