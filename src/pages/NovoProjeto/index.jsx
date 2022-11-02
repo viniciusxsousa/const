@@ -6,7 +6,7 @@ import ProjectForms from '../../components/project/ProjectForms'
 
 function NovoProjeto(){
 
-    const historico = useNavigate();
+    const historico = useNavigate()
 
     function criarProjeto(projeto){
         //inicializar custo e o serviços
@@ -16,14 +16,14 @@ function NovoProjeto(){
         fetch('http://localhost:5000/projects', {
             method: 'POST',
             headers: {
-                'Content-Type': 'aplication/json'
+                'Content-Type': 'application/json',
             },
+            body: JSON.stringify(projeto)
         }) 
         .then((resp) => resp.json())
         .then((data) => {
-            console.log(data);
+            historico('/projetos', {mensagem: 'Projeto criado com sucesso!'});
         })
-        .catch((error) => console.log(error));
     }
 
     return(

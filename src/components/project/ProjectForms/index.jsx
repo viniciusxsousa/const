@@ -6,27 +6,10 @@ import SubmitButton from "../../form/SubmitButton"
 import Select from "../../form/Select"
 import Input from "../../form/Input"
 
-function ProjectForms(handleSubmit, projectData) {
+function ProjectForms({handleSubmit, projectData}) {
 
     const [category, setCategory] = useState([]);
     const [projeto, setProjeto] = useState(projectData || {});
-
-    const submit = (e) => {
-        e.preventDefault();
-        console.log(projeto);
-        /* handleSubmit(projeto); */
-    }
-
-    function handleChange(e) {
-        setProjeto({...projeto, [e.target.name]: e.target.value});
-    }
-
-    function handleCategory(e) {
-        setProjeto({...projeto, category: {
-            id: e.target.value,
-            name: e.target.option[e.target.selectedIndex].text,
-        }})
-    }
 
     useEffect(() => {
         fetch('http://localhost:5000/category', {
@@ -40,6 +23,22 @@ function ProjectForms(handleSubmit, projectData) {
         .catch((erro) => console.log(erro))
     }, [])
 
+    const submit = (e) => {
+        e.preventDefault(); 
+        handleSubmit(projeto);
+    }
+
+    function handleChange(e) {
+        setProjeto({...projeto, [e.target.name]: e.target.value});
+    }
+
+    function handleCategory(e) {
+        setProjeto({...projeto, category: {
+            id: e.target.value,
+            name: e.target.options[e.target.selectedIndex].text,
+        }})
+    }
+    
     return (
         <Formulario onSubmit={submit}>
             <Input 
