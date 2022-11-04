@@ -1,6 +1,12 @@
 import { useLocation } from "react-router-dom"
 
-import Mensagem from "../../components/layout/Mensagem"
+import { ConteinerTitle, ConteinerProjeto } from "./styles";
+
+import LinkBotao from "../../components/layout/LinkBotao";
+import Conteiner from "../../components/layout/Conteiner";
+import Mensagem from "../../components/layout/Mensagem";
+
+
 
 function Projetos() {
     
@@ -12,10 +18,16 @@ function Projetos() {
     }
     
     return(
-        <div>
-            <h1>Projetos</h1>
+        <ConteinerProjeto>
+            <ConteinerTitle>
+                <h1>Projetos</h1>
+                <LinkBotao href='/novoprojeto' content='Criar Projeto' />
+            </ConteinerTitle>
             {msg && (<Mensagem type='sucesso' text={msg}/>)}
-        </div>
+            <Conteiner justify='start'>
+                <p>Projeto...</p>
+            </Conteiner>
+        </ConteinerProjeto>
     )
 }
 
