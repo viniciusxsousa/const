@@ -1,6 +1,7 @@
-import { Card, CategoryText } from './styles'
+import { Card, CategoryText, Acoes } from './styles'
 
 import { BsPencil, BsFillTrashFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 function ProjectCard({ id, name, budget, category, handleRemove }) {
     return (
@@ -13,10 +14,14 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
                 <span></span> {category}
                 {console.log(category)}
             </CategoryText>
-            <div>
-                <p>Editar</p>
-                <p>Remover</p>
-            </div>
+            <Acoes>
+                <Link to='/'>
+                    <BsPencil/> Editar
+                </Link>
+                <button>
+                    <BsFillTrashFill/> Remover
+                </button>
+            </Acoes>
         </Card>
     )
 }

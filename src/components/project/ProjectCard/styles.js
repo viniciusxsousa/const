@@ -33,14 +33,17 @@ export const CategoryText = styled.p`
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background-color: ${(props) => {
-            if(props?.category == 'Planejamento'){
-                return 'red'
-            } else {
-                console.log(props.category)
-                return 'black'
-            }
-        }};
+        background-color: #fff;
         margin-right: 5px;
+    }
+`
+
+export const Acoes = styled.div`
+    margin-top: 1.2em;
+    display: flex;
+    align-items: center;
+
+    a, button {
+        
     }
 `
