@@ -44,6 +44,26 @@ export const Acoes = styled.div`
     align-items: center;
 
     a, button {
-        
+        text-decoration: none;
+        background-color: #fff;
+        color: #222;
+        font-size: 0.9em;
+        padding: 0.6em 1em;
+        margin-right: 1em;
+        cursor: pointer;
+        border: 1px solid #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+    }
+
+    svg {
+        margin-right: 0.5em;
+    }
+
+    a:hover, button:hover {
+        background-color: #222;
+        color: #ffbb33;
     }
 `
