@@ -2,6 +2,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import NovoProjeto from '../pages/NovoProjeto';
 import Projetos from '../pages/Projetos';
+import Projeto from '../pages/Projeto';
 import Contato from '../pages/Contato';
 import Empresa from '../pages/Empresa';
 import Home from '../pages/Home';
@@ -21,6 +22,7 @@ function Router(){
                     <Route path='/empresa' element={<Empresa/>}/>
                     <Route path='/projetos' element={<Projetos/>}/>
                     <Route path='/novoprojeto' element={<NovoProjeto/>}/>
+                    <Route path='/projeto/:id' element={<Projeto/>}/>
                 </Routes>
             </Conteiner>
             <Rodape/>

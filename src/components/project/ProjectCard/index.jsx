@@ -21,7 +21,7 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
                 {console.log(category)}
             </CategoryText>
             <Acoes>
-                <Link to='/'>
+                <Link to={`/projeto/${id}`}>
                     <BsPencil/> Editar
                 </Link>
                 <button onClick={remover} >

@@ -1,5 +1,28 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "name": "Projeto 01",
+      "budget": "30000",
+      "category": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "custo": 0,
+      "servico": [],
+      "id": 1
+    },
+    {
+      "name": "Projeto 02",
+      "budget": "20000",
+      "category": {
+        "id": "4",
+        "name": "Planejamento"
+      },
+      "custo": 0,
+      "servico": [],
+      "id": 2
+    }
+  ],
   "category": [
     {
       "id": 1,
