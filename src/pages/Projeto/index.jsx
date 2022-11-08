@@ -3,13 +3,17 @@ import { useState, useEffect } from 'react'
 
 import { DetalhesConteiner, ProjetoDetalhes } from './styles'
 
+import ProjectForms from '../../components/project/ProjectForms'
 import Conteiner from '../../components/layout/Conteiner'
+import Mensagem from '../../components/layout/Mensagem'
 import Load from '../../components/layout/Loader'
 
 function Projeto() {
 
+    const [showProjectForm, setShowProjectForm] = useState(false);
+    const [mensagem, setMensagem] = useState();
     const [projeto, setProjeto] = useState([]);
-    const [showProjectForm, setShowProjectForm] = useState(false)
+    const [type, setType] = useState();
     const { id } = useParams();
 
 
@@ -27,6 +31,31 @@ function Projeto() {
         }, 300)
     }, [id])
 
+    function editarProjeto(projeto) {
+        
+        if(projeto.budget < projeto.custo) {
+            setMensagem('O valor do serviço não pode ser maior que o orçamento!');
+            setType('error');
+            return false
+        }
+
+        fetch(`http://localhost:5000/projects/${projeto.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(projeto),
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setProjeto(data);
+            setShowProjectForm(false);
+            setMensagem('Projeto atualizado com sucesso!');
+            setType('sucesso');
+        })
+        .catch((error) => console.log(error))
+    }
+
     function toggleProjectForm() {
         setShowProjectForm(!showProjectForm)
     }
@@ -36,6 +65,7 @@ function Projeto() {
             {projeto.name ? (
                 <ProjetoDetalhes>
                     <Conteiner direction='column'>
+                        {mensagem && <Mensagem type={type} text={mensagem}/>}
                         <DetalhesConteiner>
                             <h1>Projeto: {projeto.name}</h1>
                             <button onClick={toggleProjectForm}>
@@ -48,9 +78,10 @@ function Projeto() {
                                     <p><span>Total Utilizado:</span> R${projeto.custo}</p>
                                 </div>
                             ): (
-                                <div> 
-                                    <p>Detalhes do Projeto</p>
-                                </div>
+                               <ProjectForms 
+                                handleSubmit={editarProjeto} 
+                                projectData={projeto} 
+                                text='Salvar Edição'/>
                             )}
                         </DetalhesConteiner>
                     </Conteiner>

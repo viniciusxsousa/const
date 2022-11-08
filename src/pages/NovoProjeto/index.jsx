@@ -30,7 +30,7 @@ function NovoProjeto(){
         <ConteinerNovoProjeto>
             <h1>Criar Projeto</h1>
             <p>Crie seus projetos para depois adicionar os serviços.</p>
-           <ProjectForms handleSubmit={criarProjeto} />
+           <ProjectForms handleSubmit={criarProjeto} text='Criar Projeto'/>
         </ConteinerNovoProjeto>
     )
 }
