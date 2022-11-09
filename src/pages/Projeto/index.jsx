@@ -32,6 +32,7 @@ function Projeto() {
     }, [id])
 
     function editarProjeto(projeto) {
+        setMensagem('')
         
         if(projeto.budget < projeto.custo) {
             setMensagem('O valor do serviço não pode ser maior que o orçamento!');
