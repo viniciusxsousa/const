@@ -1,9 +1,11 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { parse, v4 as uuidv4} from 'uuid'
 
 import { DetalhesConteiner, ProjetoDetalhes } from './styles'
 
 import ProjectForms from '../../components/project/ProjectForms'
+import ServiceForms from '../../components/project/ServiceForms'
 import Conteiner from '../../components/layout/Conteiner'
 import Mensagem from '../../components/layout/Mensagem'
 import Load from '../../components/layout/Loader'
@@ -58,6 +60,26 @@ function Projeto() {
         .catch((error) => console.log(error))
     }
 
+    function criarServico(projeto) {
+
+        const ultimoServico = projeto.servico[projeto.servico.length - 1];
+
+        ultimoServico.id = uuidv4();
+
+        const ultimoServicoCusto = ultimoServico.custo;
+
+        const novoCusto = parseFloat(projeto.custo) + parseFloat(ultimoServicoCusto);
+
+        if(novoCusto > parseFloat(projeto.custo)){
+            console.log('Entrou');
+            setMensagem('O valor do serviço é maior que o orçamento do projeto.');
+            setType('error');
+            projeto.servico.pop();
+            return false;
+        }
+
+    }
+
     function toggleProjectForm() {
         setShowProjectForm(!showProjectForm);
     }
@@ -97,7 +119,11 @@ function Projeto() {
                             </button>
                             <div>
                                 {showServiceForm && (
-                                    <p>Serviços do projeto</p>
+                                   <ServiceForms 
+                                        textBtn='Adicionar' 
+                                        handleSubmit={criarServico} 
+                                        projectData={projeto}
+                                    />
                                 )}
                             </div>
                         </DetalhesConteiner>
