@@ -11,6 +11,7 @@ import Load from '../../components/layout/Loader'
 function Projeto() {
 
     const [showProjectForm, setShowProjectForm] = useState(false);
+    const [showServiceForm, setServiceForm] = useState(false);
     const [mensagem, setMensagem] = useState();
     const [projeto, setProjeto] = useState([]);
     const [type, setType] = useState();
@@ -58,7 +59,11 @@ function Projeto() {
     }
 
     function toggleProjectForm() {
-        setShowProjectForm(!showProjectForm)
+        setShowProjectForm(!showProjectForm);
+    }
+
+    function toggleServiceForms() {
+        setServiceForm(!showServiceForm);
     }
 
     return(
@@ -85,6 +90,21 @@ function Projeto() {
                                 text='Salvar Edição'/>
                             )}
                         </DetalhesConteiner>
+                        <DetalhesConteiner>
+                            <h2>Adiconar Serviço</h2>
+                            <button onClick={toggleServiceForms}>
+                                {!showServiceForm ? 'Adicionar' : 'Fechar'}
+                            </button>
+                            <div>
+                                {showServiceForm && (
+                                    <p>Serviços do projeto</p>
+                                )}
+                            </div>
+                        </DetalhesConteiner>
+                        <h2>Serviços</h2>
+                        <Conteiner justify='start'>
+                            <p>Detalhes do Serviço</p>
+                        </Conteiner>
                     </Conteiner>
                 </ProjetoDetalhes>
             ) : (
