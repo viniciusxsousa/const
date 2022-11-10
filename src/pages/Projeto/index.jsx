@@ -61,6 +61,7 @@ function Projeto() {
     }
 
     function criarServico(projeto) {
+        setMensagem('');
 
         const ultimoServico = projeto.servico[projeto.servico.length - 1];
 
@@ -70,13 +71,31 @@ function Projeto() {
 
         const novoCusto = parseFloat(projeto.custo) + parseFloat(ultimoServicoCusto);
 
-        if(novoCusto > parseFloat(projeto.custo)){
-            console.log('Entrou');
+        const custoAtual = parseFloat(projeto.budget);
+
+        if(novoCusto > custoAtual){
             setMensagem('O valor do serviço é maior que o orçamento do projeto.');
             setType('error');
             projeto.servico.pop();
             return false;
         }
+
+        projeto.custo = novoCusto;
+
+        fetch(`http://localhost:5000/projects/${projeto.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(projeto)
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setMensagem('Serviço adicionado com sucesso');
+            setType('sucesso');
+            setServiceForm(false);
+        })
+        .catch((error) => console.log(error));
 
     }
 
@@ -107,7 +126,7 @@ function Projeto() {
                                 </div>
                             ): (
                                <ProjectForms 
-                                handleSubmit={editarProjeto} 
+                                handleSubmite={editarProjeto} 
                                 projectData={projeto} 
                                 text='Salvar Edição'/>
                             )}
@@ -120,8 +139,8 @@ function Projeto() {
                             <div>
                                 {showServiceForm && (
                                    <ServiceForms 
-                                        textBtn='Adicionar' 
                                         handleSubmit={criarServico} 
+                                        textBtn='Adicionar' 
                                         projectData={projeto}
                                     />
                                 )}

@@ -18,8 +18,39 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "custo": 0,
-      "servico": [],
+      "custo": 800,
+      "servico": [
+        {
+          "name": "Serviço",
+          "custo": "100",
+          "descricao": "teste",
+          "id": "290cceb7-5bd8-4963-b6cb-209b410fcbe5"
+        },
+        {
+          "name": "Serviço",
+          "custo": "300",
+          "descricao": "teste",
+          "id": "508a2242-23f8-42d0-94c4-e9240b72d28e"
+        },
+        {
+          "name": "Serviço",
+          "custo": "200",
+          "descricao": "teste",
+          "id": "f78f8085-08eb-4fb5-acc4-28feaaf7a17d"
+        },
+        {
+          "name": "Serviço",
+          "custo": "100",
+          "descricao": "teste",
+          "id": "716474af-be1b-4c1d-b7b9-9ce294477991"
+        },
+        {
+          "name": "Teste",
+          "custo": "100",
+          "descricao": "teste",
+          "id": "442398a2-04b9-4bdf-bd9f-4b22af2bdd93"
+        }
+      ],
       "id": 2
     }
   ],

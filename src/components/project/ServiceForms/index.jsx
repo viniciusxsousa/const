@@ -5,15 +5,15 @@ import { Formulario } from '../ProjectForms/styles'
 import Input from '../../form/Input'
 import SubmitButton from '../../form/SubmitButton'
 
-function ServiceForms({ handleSubmite, textBtn, projectData }) {
+function ServiceForms(props) {
 
     const [service, setService] = useState({});
 
 
     function submit(e) {
         e.preventDefault();
-        projectData.servico.push(service);
-        handleSubmite(projectData);
+        props.projectData.servico.push(service)
+        props.handleSubmit(props.projectData);
     }
 
     function handleChange(e) {
@@ -21,7 +21,7 @@ function ServiceForms({ handleSubmite, textBtn, projectData }) {
     }
 
     return (
-        <Formulario action={submit}>
+        <Formulario onSubmit={submit}>
             <Input
                 type='text'
                 name='name'
@@ -43,7 +43,7 @@ function ServiceForms({ handleSubmite, textBtn, projectData }) {
                 placeholder='Insira a descrição do serviço'
                 handleOnChange={handleChange}
             />
-            <SubmitButton text={textBtn}/>
+            <SubmitButton text={props.textBtn}/>
         </Formulario>
     )
 }
