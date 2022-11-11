@@ -18,20 +18,8 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "custo": 800,
+      "custo": 400,
       "servico": [
-        {
-          "name": "Serviço",
-          "custo": "100",
-          "descricao": "teste",
-          "id": "290cceb7-5bd8-4963-b6cb-209b410fcbe5"
-        },
-        {
-          "name": "Serviço",
-          "custo": "300",
-          "descricao": "teste",
-          "id": "508a2242-23f8-42d0-94c4-e9240b72d28e"
-        },
         {
           "name": "Serviço",
           "custo": "200",

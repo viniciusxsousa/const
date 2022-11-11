@@ -112,7 +112,32 @@ function Projeto() {
         setServiceForm(!showServiceForm);
     }
 
-    function RemoverServico() {
+    function RemoverServico(id, custo) {
+        setMensagem('');
+
+        const servicoUpdate = servico.filter((elemento) => elemento.id !== id);
+
+        const projetoUpdate = projeto;
+
+        projetoUpdate.servico = servicoUpdate;
+
+        projetoUpdate.custo = parseFloat(projetoUpdate.custo) - parseFloat(custo);
+
+        fetch(`http://localhost:5000/projects/${projeto.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(projetoUpdate)
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setProjeto(projetoUpdate);
+            setServico(servicoUpdate);
+            setMensagem('Serviço removido com sucesso!');
+            setType('sucesso');
+        })
+        .catch((error) => console.log(error));
 
     }
 
