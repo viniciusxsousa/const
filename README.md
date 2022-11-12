@@ -23,3 +23,5 @@ O costs é um sistema que permite gerenciar orçamento e custo de projeto.
 * Contabilizar orçamento e custo
 
 ### :desktop_computer: Previa
+
+https://user-images.githubusercontent.com/81489425/201495232-cc9a4623-7431-4b36-9fb3-32ad072865b2.mp4
