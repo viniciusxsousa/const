@@ -1,42 +1,49 @@
 {
   "projects": [
     {
-      "name": "Projeto 01",
+      "name": "Reparo da millenniun falcon",
       "budget": "30000",
       "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
+        "id": "4",
+        "name": "Planejamento"
       },
-      "custo": 0,
-      "servico": [],
+      "custo": 25000,
+      "servico": [
+        {
+          "name": "Troca do motor",
+          "custo": "15000",
+          "descricao": "Colocando um novo motor",
+          "id": "79efa09b-babd-4921-9d7d-59c00b700587"
+        },
+        {
+          "name": "Reparo nas armas",
+          "custo": "10000",
+          "descricao": "As armas não estão funcionando depois da última viagem",
+          "id": "9c46325d-aad0-46f1-a23e-df7357a50366"
+        }
+      ],
       "id": 1
     },
     {
-      "name": "Projeto 02 atualizado",
-      "budget": "3000",
+      "name": "Projeto  avengers",
+      "budget": "850000000",
       "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
+        "id": "4",
+        "name": "Planejamento"
       },
-      "custo": 400,
+      "custo": 1300000,
       "servico": [
         {
-          "name": "Serviço",
-          "custo": "200",
-          "descricao": "teste",
-          "id": "f78f8085-08eb-4fb5-acc4-28feaaf7a17d"
+          "name": "Contratar consultor Tony Stark ",
+          "custo": "500000",
+          "descricao": "Salário do homem de ferro ",
+          "id": "660cc3a3-8037-4bd4-adc1-313dae80f2ac"
         },
         {
-          "name": "Serviço",
-          "custo": "100",
-          "descricao": "teste",
-          "id": "716474af-be1b-4c1d-b7b9-9ce294477991"
-        },
-        {
-          "name": "Teste",
-          "custo": "100",
-          "descricao": "teste",
-          "id": "442398a2-04b9-4bdf-bd9f-4b22af2bdd93"
+          "name": "Contratar Capitão America",
+          "custo": "800000",
+          "descricao": "Salário do Capitão America",
+          "id": "ea5d8f2b-7e40-4859-a8cf-602ef918890e"
         }
       ],
       "id": 2
